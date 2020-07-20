@@ -1,0 +1,6 @@
+
+/* OUTLINE STYLING -- HEIGHT WIDTH ETC */
+:host ::ng-deep .ck-editor__editable_inline {
+  min-height: 100px;
+  border: 1px solid gray;
+}

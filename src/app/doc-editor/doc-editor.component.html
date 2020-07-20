@@ -1,0 +1,27 @@
+
+<div class="container mt-5">
+  <ckeditor
+  [config]="config"
+  [(ngModel)]="model.editorData"
+  [editor]="Editor"
+  (ready)="onReady($event)"
+  (change)="onChange($event)"
+  #editor></ckeditor>
+
+  <br>
+
+  <ckeditor
+  class="mt-5 mb-5"
+  [disabled]="true"
+  [(ngModel)]="model.editorData"
+  [editor]="Editor"
+  (ready)="onReady($event)"></ckeditor>
+
+  <br>
+  <h5>Results : </h5>
+  <div [innerHTML]="model.editorData"></div>
+
+</div>
+
+
+
