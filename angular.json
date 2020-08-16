@@ -27,7 +27,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": ["node_modules/@ckeditor/ckeditor5-build-decoupled-document/build/translations/id.js"]
+            "scripts": []
           },
           "configurations": {
             "production": {

@@ -18,8 +18,9 @@
   (ready)="onReady($event)"></ckeditor>
 
   <br>
+  <div>{{model.editorData}} </div>
   <h5>Results : </h5>
-  <div [innerHTML]="model.editorData"></div>
+  <div class="ckeditor" [innerHTML]="model.editorData| safeHtml"> </div>
 
 </div>
 

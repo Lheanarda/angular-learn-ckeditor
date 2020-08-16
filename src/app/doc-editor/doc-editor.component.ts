@@ -1,25 +1,28 @@
 import { UploadImageService } from './../upload-image.service';
 import { AngularFireStorage } from 'angularfire2/storage';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ChangeEvent, CKEditorComponent } from '@ckeditor/ckeditor5-angular/ckeditor.component';
-import '@ckeditor/ckeditor5-build-decoupled-document/build/translations/id';
 import UploadAdapter from './uploadAdapter';
+import * as ClassicEditor from 'ckeditor5-build-classic-image-resize';
 
 
 @Component({
   selector: 'app-doc-editor',
   templateUrl: './doc-editor.component.html',
-  styleUrls: ['./doc-editor.component.css']
+  styleUrls: ['./doc-editor.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class DocEditorComponent implements OnInit {
   //for accessing ckeditor
+  html:string;
 
   @ViewChild('editor') editorComponent:CKEditorComponent;
 
   constructor(private uploadImageService:UploadImageService, private afStorage:AngularFireStorage) { }
 
   ngOnInit() {
+    this.html = "<figure style=\"width:58.52%; border:1px solid black\"> <img style=\" max-width:100% \" src=\"https://firebasestorage.googleapis.com/v0/b/fir-demo-825f8.appspot.com/o/ydtwzj92a69?alt=media&amp;token=42494489-d28d-44be-bf42-842d53c5fd73\"> </figure>"
+    // this.html = "<span class=\"test\">hello</span>"
   }
 
   //for receiving ckeditor
@@ -30,11 +33,10 @@ export class DocEditorComponent implements OnInit {
   //for configuration
   public config = {
     placeholder: 'Type something...',
-    language: 'id',
   }
 
   //editor type
-  public Editor = DecoupledEditor;
+  public Editor = ClassicEditor;
 
   //fired when ready
   public onReady( editor ) {
@@ -61,8 +63,6 @@ export class DocEditorComponent implements OnInit {
   public model = {
     editorData: ''
   };
-
-
 
 }
 

@@ -4,3 +4,26 @@
   min-height: 100px;
   border: 1px solid gray;
 }
+
+.ck-content .image.image_resized img {
+  width: 50%;
+}
+
+/* :host ::ng-deep img {
+  max-width: 100% !important;
+} */
+
+.ckeditor img{
+  max-width: 100%;
+}
+
+.ckeditor .image-style-align-right{
+  float: right;
+}
+.ckeditor .image-style-align-left {
+  float: left;
+}
+
+.ckeditor .image{
+  margin: 0 auto;
+}

@@ -1,3 +1,4 @@
+import { SafeHtmlPipe } from './doc-editor/safe-html.pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
@@ -12,7 +13,8 @@ import UploadAdapter from './doc-editor/uploadAdapter';
 @NgModule({
    declarations: [
       AppComponent,
-      DocEditorComponent
+      DocEditorComponent,
+      SafeHtmlPipe
    ],
    imports: [
       BrowserModule,
