@@ -21,6 +21,7 @@
     "@angular/router": "~9.1.11",
     "@ckeditor/ckeditor5-angular": "^1.2.3",
     "@ckeditor/ckeditor5-ckfinder": "^21.0.0",
+    "@omretterry/ckeditor5-build-decoupled-document-imageresize": "^12.4.0",
     "angularfire2": "^5.4.2",
     "bootstrap": "^4.5.0",
     "ckeditor5-build-classic-image-resize": "^1.5.0",

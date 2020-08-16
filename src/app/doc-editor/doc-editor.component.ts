@@ -33,6 +33,59 @@ export class DocEditorComponent implements OnInit {
   //for configuration
   public config = {
     placeholder: 'Type something...',
+    toolbar: {
+      items: [
+          'heading',
+          '|',
+          'fontFamily',
+          '|',
+          'bold',
+          'italic',
+          'link',
+          'bulletedList',
+          'numberedList',
+          'imageUpload',
+          'blockQuote',
+          'undo',
+          'redo'
+      ]
+  },
+  image: {
+        // Configure the available styles.
+        styles: [
+            'alignLeft', 'alignCenter', 'alignRight'
+        ],
+
+        // Configure the available image resize options.
+        resizeOptions: [
+            {
+                name: 'imageResize:original',
+                label: 'Original',
+                value: null
+            },
+            {
+                name: 'imageResize:50',
+                label: '50%',
+                value: '50'
+            },
+            {
+                name: 'imageResize:75',
+                label: '75%',
+                value: '75'
+            }
+        ],
+
+        // You need to configure the image toolbar, too, so it shows the new style
+        // buttons as well as the resize buttons.
+        toolbar: [
+            'imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight',
+            '|',
+            'imageResize',
+            '|',
+            'imageTextAlternative'
+        ]
+    },
+  language: 'en'
   }
 
   //editor type
