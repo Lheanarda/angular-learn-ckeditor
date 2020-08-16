@@ -1,7 +1,10 @@
+import { UploadImageService } from './../upload-image.service';
+import { AngularFireStorage } from 'angularfire2/storage';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 import { ChangeEvent, CKEditorComponent } from '@ckeditor/ckeditor5-angular/ckeditor.component';
 import '@ckeditor/ckeditor5-build-decoupled-document/build/translations/id';
+import UploadAdapter from './uploadAdapter';
 
 
 @Component({
@@ -11,9 +14,10 @@ import '@ckeditor/ckeditor5-build-decoupled-document/build/translations/id';
 })
 export class DocEditorComponent implements OnInit {
   //for accessing ckeditor
+
   @ViewChild('editor') editorComponent:CKEditorComponent;
 
-  constructor() { }
+  constructor(private uploadImageService:UploadImageService, private afStorage:AngularFireStorage) { }
 
   ngOnInit() {
   }
@@ -26,7 +30,7 @@ export class DocEditorComponent implements OnInit {
   //for configuration
   public config = {
     placeholder: 'Type something...',
-    language: 'id'
+    language: 'id',
   }
 
   //editor type
@@ -38,13 +42,19 @@ export class DocEditorComponent implements OnInit {
       editor.ui.view.toolbar.element,
       editor.ui.getEditableElement()
     );
+
+    const storage = this.afStorage
+    editor.plugins.get('FileRepository').createUploadAdapter = function (loader) {
+      return new UploadAdapter(loader,storage);
+    };
   }
 
   //on change text emit
   public onChange( { editor }: ChangeEvent ) {
-    const data = editor.getData();
-    // console.log (this.getEditor())
-    // console.log( data );
+    if(editor){
+      const data = editor.getData();
+    }
+
   }
 
   //for data input & binding
@@ -52,4 +62,8 @@ export class DocEditorComponent implements OnInit {
     editorData: ''
   };
 
+
+
 }
+
+
